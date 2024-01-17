@@ -1,4 +1,4 @@
-# 03/idn.py
+# 03/resource_scan.py
 
 import pyvisa as visa
 
@@ -14,9 +14,6 @@ rm = visa.ResourceManager("@py")
 
 for name in rm.list_resources():
     print(name)
-    inst = rm.open_resource(name)
-    print(inst.query("*IDN?"))
-    inst.close()
 
 
 print("-------------PROGRAM END-----------------")
