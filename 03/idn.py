@@ -14,9 +14,10 @@ rm = visa.ResourceManager("@py")
 
 for name in rm.list_resources():
     print(name)
-    inst = rm.open_resource(name)
-    print(inst.query("*IDN?"))
-    inst.close()
+    if "USB" in name and "INSTR" in name:
+        inst = rm.open_resource(name)
+        print(inst.query("*IDN?"))
+        inst.close()
 
 
 print("-------------PROGRAM END-----------------")
